@@ -30,6 +30,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -129,22 +130,21 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@SuppressLint("SimpleDateFormat")
+@SuppressLint("SimpleDateFormat", "UnrememberedMutableState")
 @Composable
 fun DrawItem(item: DataItem,
              onClick:(item: DataItem)-> Unit,
              onLongClick:(item: DataItem)-> Unit,
              onSwipe:(item: DataItem)->Unit
 ) {
-    var xOffset: MutableState<Float> = mutableStateOf(0f)
     var bgColor: Color = colorResource(R.color.teal_700)
     if (!item.enabled) bgColor = colorResource(R.color.purple_200)
-    var txtDateTime: String = ""
+    var txtDateTime = ""
     if (item.dt > 0) {
         val format = SimpleDateFormat("dd.MM.yy HH:mm")
         txtDateTime = format.format(Date(item.dt))
     }
-    var offsetX = mutableStateOf(0)
+    val offsetX = mutableIntStateOf(0)
     Row (
         modifier = Modifier
             .offset { IntOffset(offsetX.value, 0) }

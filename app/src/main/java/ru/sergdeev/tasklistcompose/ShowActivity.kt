@@ -3,12 +3,9 @@ package ru.sergdeev.tasklistcompose
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.icu.util.Calendar
 import android.os.Bundle
-import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -30,13 +27,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import org.koin.compose.viewmodel.koinViewModel
 import ru.sergdeev.tasklistcompose.domain.DataItem
-import ru.sergdeev.tasklistcompose.domain.UserCase
 import ru.sergdeev.tasklistcompose.ui.theme.TaskListComposeTheme
 import java.text.SimpleDateFormat
-import kotlin.text.toInt
 
 class ShowActivity : ComponentActivity() {
     @SuppressLint("SimpleDateFormat")
